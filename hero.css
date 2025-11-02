@@ -1,0 +1,119 @@
+/* Import a festive cursive font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* --- Hero Section Styles --- */
+
+#hero {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white-pure);
+  position: relative;
+  background: #333; /* Fallback color */
+  overflow: hidden;
+}
+
+/* 1. Video Background */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Cover the entire area */
+  z-index: 0;
+  filter: brightness(0.8); /* Slightly dim the video */
+}
+
+/* 2. Centered Content Wrapper */
+.hero-content {
+  z-index: 2; /* Sits above video and sparkles */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cursive Title */
+.hero-title-cursive {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5rem; /* Large, elegant text */
+  font-weight: 700;
+  color: var(--color-white-pure);
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+  margin-bottom: 30px; /* Space between title and button */
+}
+
+/* 3. GlassSurface Button Customization */
+.hero-button-glass {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hero-button-glass:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-button-text {
+  font-family: var(--font-body); /* Use 'Lato' from original CSS */
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-white-pure);
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* --- Sparkle Animation (from previous CSS) --- */
+.sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 15s infinite linear;
+}
+
+/* (Include all the .sparkle:nth-child definitions from the previous CSS here) */
+.sparkle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 50%; left: 30%; animation-delay: -2s; }
+.sparkle:nth-child(3) { top: 80%; left: 15%; animation-delay: -4s; }
+.sparkle:nth-child(4) { top: 10%; left: 50%; animation-delay: -6s; }
+.sparkle:nth-child(5) { top: 40%; left: 70%; animation-delay: -8s; }
+.sparkle:nth-child(6) { top: 70%; left: 60%; animation-delay: -10s; }
+.sparkle:nth-child(7) { top: 30%; left: 90%; animation-delay: -12s; }
+.sparkle:nth-child(8) { top: 60%; left: 85%; animation-delay: -14s; }
+.sparkle:nth-child(9) { top: 90%; left: 40%; animation-delay: -1s; }
+.sparkle:nth-child(10) { top: 5%; left: 25%; animation-delay: -3s; }
+
+@keyframes sparkle {
+  0% { transform: translate(0, 0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translate(20px, 50px); opacity: 0; }
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  .hero-title-cursive {
+    font-size: 3.5rem;
+  }
+}
