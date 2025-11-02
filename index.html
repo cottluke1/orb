@@ -143,6 +143,7 @@
             object-fit: cover;
             z-index: 0;
             filter: brightness(0.8);
+            background-color: #333; /* Added fallback background */
         }
 
         .hero-content {
@@ -595,8 +596,13 @@
             muted 
             playsinline 
             class="hero-video"
-            src="sr.mov" 
         >
+            <!-- 
+              Add both formats. The browser will pick the one it supports.
+              You will need to convert your .mov file to .mp4 and add it.
+            -->
+            <source src="sr.mp4" type="video/mp4">
+            <source src="sr.mov" type="video/quicktime">
             Your browser does not support the video tag.
         </video>
 
@@ -876,4 +882,5 @@
 
 </body>
 </html>
+
 
